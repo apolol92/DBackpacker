@@ -11,7 +11,7 @@ function createWindow() {
     //Create the browser window
     win = new BrowserWindow(
         {
-            width: 1100,
+            width: 1200,
             height: 800,
             title: "DBackpacker",
             icon: path.join(__dirname, 'assets/images/logo/logo.png')
@@ -24,7 +24,7 @@ function createWindow() {
         slashes: true
     }));
     win.setMenu(null);
-    //win.openDevTools();
+    win.openDevTools();
     //Emitted when the window is closed..
     win.on("closed", () => {
         // Dereference the window object, usually you would store windows
