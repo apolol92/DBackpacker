@@ -8,13 +8,23 @@
     width:calc(100% - 68px);
 }
 
-#itemTable td {
+#itemTable td  {
     text-align: left;
 }
+
+#itemTable th  {
+    text-align: left;
+}
+
+
 
 .addBtn {
     position: absolute;
     left:calc(100% - 121px);
     top: 84px;
+}
+
+.dtextfield {
+    width:100%;
 }
 

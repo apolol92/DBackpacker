@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="dbackpacker">
 
 <head>
     <meta charset="utf-8">
@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <!-- Style for item addition bar -->
-    <link rel="stylesheet" href="css/itemAdditionbar.css">
     <!-- Style for item table -->
     <link rel="stylesheet" href="css/itemTable.css">
 </head>
@@ -45,67 +43,65 @@
             </nav>
         </div>
         <!-- Item-Table -->
-        <div id="itemTable">
+        <div id="itemTable" ng-controller="itemController">
             <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                 <thead>
+                    <!-- <tr>
+                        <th>Gegenstandname</th>
+                        <th>Gewicht (kg)</th>
+                        <th>Wert (€)</th>
+                    </tr> -->
                     <tr>
                         <th class="mdl-data-table__cell--non-numeric">
                             <div class="mdl-textfield mdl-js-textfield" style="width:100%">
-                                <input class="mdl-textfield__input" type="text" id="sample1">
+                                <input class="mdl-textfield__input" type="text" id="itemnameInput" ng-model="itemnameInput">
                                 <label class="mdl-textfield__label" for="sample1">Gegenstand...</label>
                             </div>
                         </th>
                         <th>
                             <div class="mdl-textfield mdl-js-textfield" style="width:100%">
-                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2">
+                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="weightInput" ng-model="weightInput">
                                 <label class="mdl-textfield__label" for="sample2">Gewicht (kg)...</label>
                                 <span class="mdl-textfield__error">Input is not a number!</span>
                             </div>
                         </th>
                         <th>
                             <div class="mdl-textfield mdl-js-textfield" style="width:100%">
-                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2">
+                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="valueInput" ng-model="valueInput">
                                 <label class="mdl-textfield__label" for="sample2">Wert (€)...</label>
                                 <span class="mdl-textfield__error">Input is not a number!</span>
                             </div>
                         </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
-                            <td>25</td>
-                            <td>$2.90</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
-                            <td>50</td>
-                            <td>$1.25</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
-                            <td>10</td>
-                            <td>$2.35</td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-            </table>
-            <button class="mdl-button addBtn">
+                        <th>
+                            <button class="mdl-button" style="display: block; width: 100%;height:100%;" ng-click="updateItemTable()">
               <i class="material-icons mdl-color-text--black" role="presentation">add</i>
               <span class="visuallyhidden">add</span>
             </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in items">
+                        <td class="mdl-data-table__cell--non-numeric">{{item.name}}</td>
+                        <td>{{item.weight}}</td>
+                        <td>{{item.value}}</td>
+                        <td>
+                            <button class="mdl-button" style="display: block; width: 100%;height:100%;" ng-click="updateItemTable()">
+                                <i class="material-icons mdl-color-text--black" role="presentation">clear</i>
+                                <span class="visuallyhidden">add</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
 
         </div>
 
 
     </div>
-
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="js/dbackpacker.js"></script>
 </body>
 
 </html>
