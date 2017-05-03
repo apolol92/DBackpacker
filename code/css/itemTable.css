@@ -1,0 +1,8 @@
+#itemTable {
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+#itemTable table {
+    width:calc(100% - 68px);
+}

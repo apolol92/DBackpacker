@@ -1,15 +1,109 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- App-Title with HTML -->
-  <title>DBackpacker</title>
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- App-Title with HTML -->
+    <title>DBackpacker</title>
+    <!-- CDN MDL -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- Style for item addition bar -->
+    <link rel="stylesheet" href="css/itemAdditionbar.css">
+    <!-- Style for item table -->
+    <link rel="stylesheet" href="css/itemTable.css">
 </head>
 
 <body>
-  
+    <!-- Uses a header that scrolls with the text, rather than staying
+  locked at the top -->
+    <div class="mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">DBackpacker</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation -->
+                <nav class="mdl-navigation">
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2">
+                        <label class="mdl-textfield__label" for="sample2">Maximal Gewicht in kg</label>
+                        <span class="mdl-textfield__error">Eingabe ist keine Zahl</span>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Menü</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Alles zurücksetzen</a>
+                <a class="mdl-navigation__link" href="">Optionen</a>
+                <a class="mdl-navigation__link" href="">Beenden</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <div id="itemAdditionbar">
+                    <!-- Your content goes here -->
+                    <div class="mdl-textfield mdl-js-textfield" style="width:25%;">
+                        <input class="mdl-textfield__input" type="text" id="sample1">
+                        <label class="mdl-textfield__label" for="sample1">Gegenstandname</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield" style="width:25%;">
+                        <input class="mdl-textfield__input" type="text" id="sample1">
+                        <label class="mdl-textfield__label" for="sample1">Gewicht</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield" style="width:25%;">
+                        <input class="mdl-textfield__input" type="text" id="sample1">
+                        <label class="mdl-textfield__label" for="sample1">Wert</label>
+                    </div>
+                    <!-- Raised button with ripple -->
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" style="width:23%;">
+                        Erstellen
+                    </button>
+                </div>
+                <!-- Item-Table -->
+                <div id="itemTable">
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <thead>
+                            <tr>
+                                <th class="mdl-data-table__cell--non-numeric">Gegenstand</th>
+                                <th>Gewicht</th>
+                                <th>Wert</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">Keine Gegenstände vorhanden</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <!-- <tr>
+                                <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
+                                <td>50</td>
+                                <td>$1.25</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
+                                <td>10</td>
+                                <td>$2.35</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Accent-colored raised button with ripple -->
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-top:10px;margin-right:43px;float:right;"
+                    disabled>
+                    Rucksack packen
+                </button>
+            </div>
+        </main>
+    </div>
 </body>
 
 </html>
