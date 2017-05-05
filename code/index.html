@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html ng-app="dbackpacker">
+<html ng-app="dbackpacker" ng-cloak>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- App-Title with HTML -->
     <title>DBackpacker</title>
+    <style>
+        [ng\:cloak],
+        [ng-cloak],
+        .ng-cloak {
+            display: none;
+        }
+
+        a[ng-click] {
+            cursor: pointer;
+        }
+    </style>
     <!-- CDN MDL -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
@@ -25,21 +36,26 @@
                 <!-- Add spacer, to align navigation to the right -->
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation -->
-                <nav class="mdl-navigation">
+                <nav class="mdl-navigation" ng-controller="packerController">
                     <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2">
+                        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="maxWeightInput" ng-model="maxWeightInput"
+                            placeholder="Maximal Gewicht in kg">
                         <label class="mdl-textfield__label" for="sample2">Maximal Gewicht in kg</label>
                         <span class="mdl-textfield__error">Eingabe ist keine Zahl</span>
                     </div>
+                    <!-- Accent-colored raised button with ripple -->
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-click="pack()">
+                        EINPACKEN
+                    </button>
                 </nav>
             </div>
         </header>
-        <div class="mdl-layout__drawer">
+        <div class="mdl-layout__drawer" ng-controller="menuController">
             <span class="mdl-layout-title">Menü</span>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="">Alles zurücksetzen</a>
-                <a class="mdl-navigation__link" href="">Optionen</a>
-                <a class="mdl-navigation__link" href="">Beenden</a>
+                <a class="mdl-navigation__link" ng-click="resetAll()">Alles zurücksetzen</a>
+                <a class="mdl-navigation__link" ng-click="options()">Optionen</a>
+                <a class="mdl-navigation__link" ng-click="exit()">Beenden</a>
             </nav>
         </div>
         <!-- Item-Table -->
@@ -86,7 +102,7 @@
                         <td>{{item.weight}}</td>
                         <td>{{item.value}}</td>
                         <td>
-                            <button class="mdl-button" style="display: block; width: 100%;height:100%;" ng-click="updateItemTable()">
+                            <button class="mdl-button" style="display: block; width: 100%;height:100%;" ng-click="items.splice($index,1)">
                                 <i class="material-icons mdl-color-text--black" role="presentation">clear</i>
                                 <span class="visuallyhidden">add</span>
                             </button>
