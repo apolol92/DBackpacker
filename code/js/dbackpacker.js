@@ -4,11 +4,15 @@ const path = require("path")
 const url = require("url")
 
 dbackpacker.run(function($rootScope) {
-    $rootScope.items = [];
+    $rootScope.items = JSON.parse(sessionStorage.getItem('key'));
+    if($rootScope.items===null) {
+        $rootScope.items = [];
+    }
 });
 
 dbackpacker.controller("packerController", function($scope) {
     $scope.pack = function() {
+        sessionStorage.setItem('key', JSON.stringify($scope.items));
         var window = remote.getCurrentWindow();
         window.loadURL(url.format({
             pathname: path.join(__dirname, "packedBackpack.html"),
