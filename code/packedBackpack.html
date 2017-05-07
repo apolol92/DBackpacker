@@ -21,17 +21,17 @@
     <link rel="stylesheet" href="css/itemTable.css">
 </head>
 
-<body ng-controller="optionController">
+<body>
     <!-- Uses a header that scrolls with the text, rather than staying
   locked at the top -->
     <div class="mdl-layout mdl-js-layout">
-        <header class="mdl-layout__header">
+        <header class="mdl-layout__header" ng-controller="backController">
             <div class="mdl-layout__header-row" style="margin-left:0px;padding-left:25px;">
                 <!-- Title -->
-                <button class="mdl-button" ng-click="backpacking()">
+                <button class="mdl-button" ng-click="back()">
                     <i class="material-icons mdl-color-text--white" role="presentation">keyboard_backspace</i>
                 </button>
-                <span class="mdl-layout-title" style="margin-left: 10px;">Gepackter Rucksack {{$localStorage.LocalMessage}} {{$sessionStorage.SessionMessage}}</span>
+                <span class="mdl-layout-title" style="margin-left: 10px;">Gepackter Rucksack</span>
             </div>
         </header>
         <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
@@ -43,12 +43,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in items">
+                <tr ng-repeat="item in packedItems">
                     <td class="mdl-data-table__cell--non-numeric">{{item.name}}</td>
                     <td>{{item.weight}}</td>
                     <td>{{item.value}}</td>
                 </tr>
-            </tbody>
+            </tbody
         </table>
     </div>
     <!-- MDL Progress Bar with Indeterminate Progress -->
@@ -57,9 +57,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.js"></script>
     <script src="js/dbackpacker.js"></script>
-    <script>
-        var test = JSON.parse(sessionStorage.getItem('key'));
-    </script>
 
 </body>
 

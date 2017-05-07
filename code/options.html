@@ -21,14 +21,14 @@
     <link rel="stylesheet" href="css/itemTable.css">
 </head>
 
-<body ng-controller="optionController">
+<body>
     <!-- Uses a header that scrolls with the text, rather than staying
   locked at the top -->
     <div class="mdl-layout mdl-js-layout">
-        <header class="mdl-layout__header">
+        <header class="mdl-layout__header" ng-controller="backController">
             <div class="mdl-layout__header-row" style="margin-left:0px;padding-left:25px;">
                 <!-- Title -->
-                <button class="mdl-button" ng-click="backpacking()">
+                <button class="mdl-button" ng-click="back()">
                     <i class="material-icons mdl-color-text--white" role="presentation">keyboard_backspace</i>
                 </button>
                 <span class="mdl-layout-title" style="margin-left: 10px;">Optionen</span>
