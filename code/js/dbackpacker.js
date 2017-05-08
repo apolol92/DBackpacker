@@ -60,15 +60,6 @@ dbackpacker.controller("menuController", function ($scope) {
         document.getElementById("maxWeightInput").placeholder = "Maximal Gewicht in kg";*/
     }
 
-    $scope.options = function () {
-        var window = remote.getCurrentWindow();
-        window.loadURL(url.format({
-            pathname: path.join(__dirname, "options.html"),
-            protocol: "file:",
-            slashes: true
-        }));
-    };
-
     $scope.exit = function () {
         var window = remote.getCurrentWindow();
         window.close();

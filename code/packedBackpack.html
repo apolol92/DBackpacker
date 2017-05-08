@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- General Style -->
+    <link rel="stylesheet" href="css/general.css">
     <!-- Style for item table -->
     <link rel="stylesheet" href="css/itemTable.css">
 </head>
@@ -34,24 +36,23 @@
                 <span class="mdl-layout-title" style="margin-left: 10px;">Gepackter Rucksack</span>
             </div>
         </header>
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="width:calc(100% - 50px);
-    margin-top: 10px;
-    margin-left: 25px;
-    margin-right: 25px;">
-            <thead>
-                <tr>
-                    <th class="mdl-data-table__cell--non-numeric">Gegenstand</th>
-                    <th>Gewicht</th>
-                    <th>Wert</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="item in packedItems">
-                    <td class="mdl-data-table__cell--non-numeric">{{item.name}}</td>
-                    <td>{{item.weight}}</td>
-                    <td>{{item.value}}</td>
-                </tr>
-            </tbody </table>
+        <div id="itemTable">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">Gegenstand</th>
+                        <th>Gewicht</th>
+                        <th>Wert</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in packedItems">
+                        <td class="mdl-data-table__cell--non-numeric">{{item.name}}</td>
+                        <td>{{item.weight}}</td>
+                        <td>{{item.value}}</td>
+                    </tr>
+                </tbody </table>
+        </div>
     </div>
     <!-- MDL Progress Bar with Indeterminate Progress -->
 

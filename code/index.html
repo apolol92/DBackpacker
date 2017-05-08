@@ -6,21 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- App-Title with HTML -->
     <title>DBackpacker</title>
-    <style>
-        [ng\:cloak],
-        [ng-cloak],
-        .ng-cloak {
-            display: none;
-        }
-
-        a[ng-click] {
-            cursor: pointer;
-        }
-    </style>
+    
     <!-- CDN MDL -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- General Style -->
+    <link rel="stylesheet" href="css/general.css">
     <!-- Style for item table -->
     <link rel="stylesheet" href="css/itemTable.css">
 </head>
@@ -54,7 +46,6 @@
             <span class="mdl-layout-title">Menü</span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" ng-click="resetAll()">Alles zurücksetzen</a>
-                <a class="mdl-navigation__link" ng-click="options()">Optionen</a>
                 <a class="mdl-navigation__link" ng-click="exit()">Beenden</a>
             </nav>
         </div>
